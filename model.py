@@ -124,7 +124,6 @@ def train():
             remb = torch.cat([remb0,remb1,remb2,remb3],dim=2)
             remb = remb.view(t,b,l*f)
 
-            """这里选取的是LSTM网络的最后一个时间点的输出"""
             r_out_up, (h_n_u, h_c_u) = self.rnn_up(lemb)
             r_out_up = F.dropout(r_out_up, p=0.4)
             out_up = r_out_up.mean(dim=0)
